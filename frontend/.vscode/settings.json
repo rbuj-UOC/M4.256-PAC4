@@ -13,7 +13,7 @@
   },
   "eslint.format.enable": true,
   "emmet.triggerExpansionOnTab": true,
-  "cSpell.language": "en",
+  "cSpell.language": "es,en",
   "htmlhint.options": {
     "attr-lowercase": false,
     "doctype-first": false
