@@ -7,7 +7,7 @@ import { LocalStorageService } from 'src/app/Services/local-storage.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   showAuthSection: boolean;
@@ -33,32 +33,8 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  dashboard(): void {
-    this.router.navigateByUrl('dashboard');
-  }
-
-  home(): void {
-    this.router.navigateByUrl('home');
-  }
-
-  login(): void {
-    this.router.navigateByUrl('login');
-  }
-
-  register(): void {
-    this.router.navigateByUrl('register');
-  }
-
-  adminPosts(): void {
-    this.router.navigateByUrl('posts');
-  }
-
-  adminCategories(): void {
-    this.router.navigateByUrl('categories');
-  }
-
-  profile(): void {
-    this.router.navigateByUrl('profile');
+  navigationTo(url: string): void {
+    this.router.navigateByUrl(url);
   }
 
   logout(): void {
@@ -67,7 +43,7 @@ export class HeaderComponent implements OnInit {
 
     const headerInfo: HeaderMenus = {
       showAuthSection: false,
-      showNoAuthSection: true,
+      showNoAuthSection: true
     };
 
     this.headerMenusService.headerManagement.next(headerInfo);
