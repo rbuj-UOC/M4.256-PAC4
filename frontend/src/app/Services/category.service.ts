@@ -10,13 +10,16 @@ export interface deleteResponse {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class CategoryService {
   private urlBlogUocApi: string;
   private controller: string;
 
-  constructor(private http: HttpClient, private sharedService: SharedService) {
+  constructor(
+    private http: HttpClient,
+    private sharedService: SharedService
+  ) {
     this.controller = 'categories';
     this.urlBlogUocApi = 'http://localhost:3000/' + this.controller;
   }

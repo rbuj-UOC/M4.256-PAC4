@@ -6,22 +6,25 @@ import { catchError } from 'rxjs/operators';
 import { PostDTO } from '../Models/post.dto';
 import { SharedService } from './shared.service';
 
-interface updateResponse {
+export interface updateResponse {
   affected: number;
 }
 
-interface deleteResponse {
+export interface deleteResponse {
   affected: number;
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class PostService {
   private urlBlogUocApi: string;
   private controller: string;
 
-  constructor(private http: HttpClient, private sharedService: SharedService) {
+  constructor(
+    private http: HttpClient,
+    private sharedService: SharedService
+  ) {
     this.controller = 'posts';
     this.urlBlogUocApi = 'http://localhost:3000/' + this.controller;
   }
