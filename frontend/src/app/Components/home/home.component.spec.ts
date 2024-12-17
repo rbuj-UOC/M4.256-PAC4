@@ -51,16 +51,16 @@ describe('HomeComponent', () => {
     const postsService = fixture.debugElement.injector.get(PostService);
     // lista de post "mocR", en este ejemplo simplemente utilizamos una lista vacía
     const listPosts: PostDTO[] = [];
-    // espia para simular el método getPosts del servicio
-    // le decimos que nos devolverà una lista de posts y que será un observable, de ahi que utilicemos (of)
+    // espía para simular el método getPosts del servicio
+    // le decimos que nos devolverá una lista de posts y que será un observable, de ahi que utilicemos (of)
     const spy = spyOn(postsService, 'getPosts').and.returnValue(of(listPosts));
     // llamamos al método privado loadPosts del componente HomeComponent
     component['loadPosts']();
-    // Que esperamos2 esperamos que el getPosts del PostService sea llamado
+    // Que esperamos? esperamos que el getPosts del PostService sea llamado
     expect(spy).toHaveBeenCalled();
     // Que esperamos?
     // esperamos que la variable posts del HomeComponent donde se mapea el resultado de la llamada anterior
-    // tenga el número de posts correcto, en este caso, como listPosts "mock" tiene 8 posts, el resultado esperado tiene que ser 2
+    // tenga el número de posts correcto, en este caso, como listPosts "mock" tiene 0 posts, el resultado esperado tiene que ser 0
     expect(component.posts.length).toBe(0);
   });
 });

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { CategoryDTO } from 'src/app/Models/category.dto';
 import {
   CategoryService,
-  deleteResponse,
+  deleteResponse
 } from 'src/app/Services/category.service';
 import { LocalStorageService } from 'src/app/Services/local-storage.service';
 import { SharedService } from 'src/app/Services/shared.service';
@@ -12,7 +12,7 @@ import { SharedService } from 'src/app/Services/shared.service';
 @Component({
   selector: 'app-categories-list',
   templateUrl: './categories-list.component.html',
-  styleUrls: ['./categories-list.component.scss'],
+  styleUrls: ['./categories-list.component.scss']
 })
 export class CategoriesListComponent {
   categories!: CategoryDTO[];
@@ -54,7 +54,7 @@ export class CategoriesListComponent {
     let errorResponse: any;
 
     // show confirmation popup
-    let result = confirm(
+    const result = confirm(
       'Confirm delete category with id: ' + categoryId + ' .'
     );
     if (result) {
