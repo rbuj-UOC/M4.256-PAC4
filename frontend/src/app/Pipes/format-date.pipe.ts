@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'formatDate',
+  name: 'formatDate'
 })
 export class FormatDatePipe implements PipeTransform {
   transform(value: Date, ...args: number[]): unknown {
@@ -10,10 +10,10 @@ export class FormatDatePipe implements PipeTransform {
     let yyyy: number;
     let ddFormat: string;
     let mmFormat: string;
-    let newFormat: string = '';
+    let newFormat = '';
 
-    let dateTransform = new Date(value);
-    let type: number = args[0];
+    const dateTransform = new Date(value);
+    const type: number = args[0];
 
     dd = dateTransform.getDate();
     mm = dateTransform.getMonth() + 1;
