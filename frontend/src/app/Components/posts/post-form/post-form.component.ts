@@ -9,15 +9,16 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
-import { CategoryDTO } from 'src/app/Models/category.dto';
-import { PostDTO } from 'src/app/Models/post.dto';
-import { CategoryService } from 'src/app/Services/category.service';
-import { LocalStorageService } from 'src/app/Services/local-storage.service';
-import { PostService } from 'src/app/Services/post.service';
-import { SharedService } from 'src/app/Services/shared.service';
+import { CategoryDTO } from '../../../Models/category.dto';
+import { PostDTO } from '../../../Models/post.dto';
+import { CategoryService } from '../../../Services/category.service';
+import { LocalStorageService } from '../../../Services/local-storage.service';
+import { PostService } from '../../../Services/post.service';
+import { SharedService } from '../../../Services/shared.service';
 
 @Component({
   selector: 'app-post-form',
+  standalone: false,
   templateUrl: './post-form.component.html',
   styleUrls: ['./post-form.component.scss'],
 })

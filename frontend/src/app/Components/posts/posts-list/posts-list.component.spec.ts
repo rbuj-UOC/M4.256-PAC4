@@ -4,10 +4,10 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
-import { PostDTO } from 'src/app/Models/post.dto';
-import { LocalStorageService } from 'src/app/Services/local-storage.service';
-import { PostService } from 'src/app/Services/post.service';
-import { SharedService } from 'src/app/Services/shared.service';
+import { PostDTO } from '../../../Models/post.dto';
+import { LocalStorageService } from '../../../Services/local-storage.service';
+import { PostService } from '../../../Services/post.service';
+import { SharedService } from '../../../Services/shared.service';
 import { PostsListComponent } from './posts-list.component';
 
 describe('PostsListComponent', () => {

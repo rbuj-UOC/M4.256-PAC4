@@ -1,16 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CategoryDTO } from 'src/app/Models/category.dto';
-import {
-  CategoryService,
-  deleteResponse
-} from 'src/app/Services/category.service';
-import { LocalStorageService } from 'src/app/Services/local-storage.service';
-import { SharedService } from 'src/app/Services/shared.service';
+import { CategoryDTO } from '../../../Models/category.dto';
+import { CategoryService, deleteResponse } from '../../../Services/category.service';
+import { LocalStorageService } from '../../../Services/local-storage.service';
+import { SharedService } from '../../../Services/shared.service';
 
 @Component({
   selector: 'app-categories-list',
+  standalone: false,
   templateUrl: './categories-list.component.html',
   styleUrls: ['./categories-list.component.scss']
 })

@@ -8,15 +8,16 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
-import { AuthDTO } from 'src/app/Models/auth.dto';
-import { HeaderMenus } from 'src/app/Models/header-menus.dto';
-import { AuthService, AuthToken } from 'src/app/Services/auth.service';
-import { HeaderMenusService } from 'src/app/Services/header-menus.service';
-import { LocalStorageService } from 'src/app/Services/local-storage.service';
-import { SharedService } from 'src/app/Services/shared.service';
+import { AuthDTO } from '../../Models/auth.dto';
+import { HeaderMenus } from '../../Models/header-menus.dto';
+import { AuthService, AuthToken } from '../../Services/auth.service';
+import { HeaderMenusService } from '../../Services/header-menus.service';
+import { LocalStorageService } from '../../Services/local-storage.service';
+import { SharedService } from '../../Services/shared.service';
 
 @Component({
   selector: 'app-login',
+  standalone: false,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })

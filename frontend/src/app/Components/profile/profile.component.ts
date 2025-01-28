@@ -8,13 +8,14 @@ import {
   Validators,
 } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
-import { UserDTO } from 'src/app/Models/user.dto';
-import { LocalStorageService } from 'src/app/Services/local-storage.service';
-import { SharedService } from 'src/app/Services/shared.service';
-import { UserService } from 'src/app/Services/user.service';
+import { UserDTO } from '../../Models/user.dto';
+import { LocalStorageService } from '../../Services/local-storage.service';
+import { SharedService } from '../../Services/shared.service';
+import { UserService } from '../../Services/user.service';
 
 @Component({
   selector: 'app-profile',
+  standalone: false,
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })

@@ -3,8 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { of } from 'rxjs';
-import { PostDTO } from 'src/app/Models/post.dto';
-import { PostService } from 'src/app/Services/post.service';
+import { PostDTO } from '../../Models/post.dto';
+import { PostService } from '../../Services/post.service';
 import { HomeComponent } from './home.component';
 
 describe('HomeComponent', () => {

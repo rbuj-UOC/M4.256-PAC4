@@ -9,14 +9,15 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
-import { HeaderMenus } from 'src/app/Models/header-menus.dto';
-import { UserDTO } from 'src/app/Models/user.dto';
-import { HeaderMenusService } from 'src/app/Services/header-menus.service';
-import { SharedService } from 'src/app/Services/shared.service';
-import { UserService } from 'src/app/Services/user.service';
+import { HeaderMenus } from '../../Models/header-menus.dto';
+import { UserDTO } from '../../Models/user.dto';
+import { HeaderMenusService } from '../../Services/header-menus.service';
+import { SharedService } from '../../Services/shared.service';
+import { UserService } from '../../Services/user.service';
 
 @Component({
   selector: 'app-register',
+  standalone: false,
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })

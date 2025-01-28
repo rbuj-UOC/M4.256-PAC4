@@ -2,9 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Router } from '@angular/router';
-import { HeaderMenus } from 'src/app/Models/header-menus.dto';
-import { HeaderMenusService } from 'src/app/Services/header-menus.service';
-import { LocalStorageService } from 'src/app/Services/local-storage.service';
+import { HeaderMenus } from '../../Models/header-menus.dto';
+import { HeaderMenusService } from '../../Services/header-menus.service';
+import { LocalStorageService } from '../../Services/local-storage.service';
 import { HeaderComponent } from './header.component';
 
 class TemporalComponentForRoutes {}

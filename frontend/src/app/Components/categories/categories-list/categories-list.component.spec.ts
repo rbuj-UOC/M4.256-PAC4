@@ -4,10 +4,10 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
-import { CategoryDTO } from 'src/app/Models/category.dto';
-import { CategoryService } from 'src/app/Services/category.service';
-import { LocalStorageService } from 'src/app/Services/local-storage.service';
-import { SharedService } from 'src/app/Services/shared.service';
+import { CategoryDTO } from '../../../Models/category.dto';
+import { CategoryService } from '../../../Services/category.service';
+import { LocalStorageService } from '../../../Services/local-storage.service';
+import { SharedService } from '../../../Services/shared.service';
 import { CategoriesListComponent } from './categories-list.component';
 
 describe('CategoriesListComponent', () => {

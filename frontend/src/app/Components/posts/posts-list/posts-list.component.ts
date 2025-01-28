@@ -1,14 +1,15 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { PostDTO } from 'src/app/Models/post.dto';
-import { deleteResponse } from 'src/app/Services/category.service';
-import { LocalStorageService } from 'src/app/Services/local-storage.service';
-import { PostService } from 'src/app/Services/post.service';
-import { SharedService } from 'src/app/Services/shared.service';
+import { PostDTO } from '../../../Models/post.dto';
+import { deleteResponse } from '../../../Services/category.service';
+import { LocalStorageService } from '../../../Services/local-storage.service';
+import { PostService } from '../../../Services/post.service';
+import { SharedService } from '../../../Services/shared.service';
 
 @Component({
   selector: 'app-posts-list',
+  standalone: false,
   templateUrl: './posts-list.component.html',
   styleUrls: ['./posts-list.component.scss']
 })
