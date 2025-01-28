@@ -6,6 +6,7 @@ import { LocalStorageService } from '../../Services/local-storage.service';
 
 @Component({
   selector: 'app-header',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']

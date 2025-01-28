@@ -5,7 +5,7 @@ import {
   UntypedFormBuilder,
   UntypedFormControl,
   UntypedFormGroup,
-  Validators,
+  Validators
 } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { UserDTO } from '../../Models/user.dto';
@@ -15,9 +15,10 @@ import { UserService } from '../../Services/user.service';
 
 @Component({
   selector: 'app-profile',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
   profileUser: UserDTO;
@@ -46,24 +47,24 @@ export class ProfileComponent implements OnInit {
     this.name = new UntypedFormControl(this.profileUser.name, [
       Validators.required,
       Validators.minLength(5),
-      Validators.maxLength(25),
+      Validators.maxLength(25)
     ]);
 
     this.surname_1 = new UntypedFormControl(this.profileUser.surname_1, [
       Validators.required,
       Validators.minLength(5),
-      Validators.maxLength(25),
+      Validators.maxLength(25)
     ]);
 
     this.surname_2 = new UntypedFormControl(this.profileUser.surname_2, [
       Validators.minLength(5),
-      Validators.maxLength(25),
+      Validators.maxLength(25)
     ]);
 
     this.alias = new UntypedFormControl(this.profileUser.alias, [
       Validators.required,
       Validators.minLength(5),
-      Validators.maxLength(25),
+      Validators.maxLength(25)
     ]);
 
     this.birth_date = new UntypedFormControl(
@@ -73,12 +74,12 @@ export class ProfileComponent implements OnInit {
 
     this.email = new UntypedFormControl(this.profileUser.email, [
       Validators.required,
-      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')
     ]);
 
     this.password = new UntypedFormControl(this.profileUser.password, [
       Validators.required,
-      Validators.minLength(8),
+      Validators.minLength(8)
     ]);
 
     this.profileForm = this.formBuilder.group({
@@ -88,7 +89,7 @@ export class ProfileComponent implements OnInit {
       alias: this.alias,
       birth_date: this.birth_date,
       email: this.email,
-      password: this.password,
+      password: this.password
     });
   }
 
@@ -116,7 +117,7 @@ export class ProfileComponent implements OnInit {
             alias: this.alias,
             birth_date: this.birth_date,
             email: this.email,
-            password: this.password,
+            password: this.password
           });
         },
         (error: HttpErrorResponse) => {
@@ -128,7 +129,7 @@ export class ProfileComponent implements OnInit {
   }
 
   updateUser(): void {
-    let responseOK: boolean = false;
+    let responseOK = false;
     this.isValidForm = false;
     let errorResponse: any;
 

@@ -4,7 +4,7 @@ import {
   UntypedFormBuilder,
   UntypedFormControl,
   UntypedFormGroup,
-  Validators,
+  Validators
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
@@ -15,9 +15,10 @@ import { SharedService } from '../../../Services/shared.service';
 
 @Component({
   selector: 'app-category-form',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
   templateUrl: './category-form.component.html',
-  styleUrls: ['./category-form.component.scss'],
+  styleUrls: ['./category-form.component.scss']
 })
 export class CategoryFormComponent implements OnInit {
   category: CategoryDTO;
@@ -46,23 +47,23 @@ export class CategoryFormComponent implements OnInit {
 
     this.title = new UntypedFormControl(this.category.title, [
       Validators.required,
-      Validators.maxLength(55),
+      Validators.maxLength(55)
     ]);
 
     this.description = new UntypedFormControl(this.category.description, [
       Validators.required,
-      Validators.maxLength(255),
+      Validators.maxLength(255)
     ]);
 
     this.css_color = new UntypedFormControl(this.category.css_color, [
       Validators.required,
-      Validators.maxLength(7),
+      Validators.maxLength(7)
     ]);
 
     this.categoryForm = this.formBuilder.group({
       title: this.title,
       description: this.description,
-      css_color: this.css_color,
+      css_color: this.css_color
     });
   }
 
@@ -86,7 +87,7 @@ export class CategoryFormComponent implements OnInit {
           this.categoryForm = this.formBuilder.group({
             title: this.title,
             description: this.description,
-            css_color: this.css_color,
+            css_color: this.css_color
           });
         },
         (error: HttpErrorResponse) => {
@@ -99,7 +100,7 @@ export class CategoryFormComponent implements OnInit {
 
   private editCategory(): void {
     let errorResponse: any;
-    let responseOK: boolean = false;
+    let responseOK = false;
     if (this.categoryId) {
       const userId = this.localStorageService.get('user_id');
       if (userId) {
@@ -135,7 +136,7 @@ export class CategoryFormComponent implements OnInit {
 
   private createCategory(): void {
     let errorResponse: any;
-    let responseOK: boolean = false;
+    let responseOK = false;
     const userId = this.localStorageService.get('user_id');
     if (userId) {
       this.category.userId = userId;

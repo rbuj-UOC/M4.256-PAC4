@@ -1,11 +1,11 @@
 import { formatDate } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormControl,
   UntypedFormGroup,
-  Validators,
+  Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
@@ -17,11 +17,12 @@ import { UserService } from '../../Services/user.service';
 
 @Component({
   selector: 'app-register',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   registerUser: UserDTO;
 
   name: UntypedFormControl;
@@ -49,24 +50,24 @@ export class RegisterComponent implements OnInit {
     this.name = new UntypedFormControl(this.registerUser.name, [
       Validators.required,
       Validators.minLength(5),
-      Validators.maxLength(25),
+      Validators.maxLength(25)
     ]);
 
     this.surname_1 = new UntypedFormControl(this.registerUser.surname_1, [
       Validators.required,
       Validators.minLength(5),
-      Validators.maxLength(25),
+      Validators.maxLength(25)
     ]);
 
     this.surname_2 = new UntypedFormControl(this.registerUser.surname_2, [
       Validators.minLength(5),
-      Validators.maxLength(25),
+      Validators.maxLength(25)
     ]);
 
     this.alias = new UntypedFormControl(this.registerUser.alias, [
       Validators.required,
       Validators.minLength(5),
-      Validators.maxLength(25),
+      Validators.maxLength(25)
     ]);
 
     this.birth_date = new UntypedFormControl(
@@ -76,12 +77,12 @@ export class RegisterComponent implements OnInit {
 
     this.email = new UntypedFormControl(this.registerUser.email, [
       Validators.required,
-      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')
     ]);
 
     this.password = new UntypedFormControl(this.registerUser.password, [
       Validators.required,
-      Validators.minLength(8),
+      Validators.minLength(8)
     ]);
 
     this.registerForm = this.formBuilder.group({
@@ -91,14 +92,12 @@ export class RegisterComponent implements OnInit {
       alias: this.alias,
       birth_date: this.birth_date,
       email: this.email,
-      password: this.password,
+      password: this.password
     });
   }
 
-  ngOnInit(): void {}
-
   register(): void {
-    let responseOK: boolean = false;
+    let responseOK = false;
     this.isValidForm = false;
     let errorResponse: any;
 
@@ -138,7 +137,7 @@ export class RegisterComponent implements OnInit {
 
           const headerInfo: HeaderMenus = {
             showAuthSection: false,
-            showNoAuthSection: true,
+            showNoAuthSection: true
           };
 
           this.headerMenusService.headerManagement.next(headerInfo);

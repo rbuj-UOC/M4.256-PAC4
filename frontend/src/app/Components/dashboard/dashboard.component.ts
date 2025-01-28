@@ -6,15 +6,16 @@ import { SharedService } from '../../Services/shared.service';
 
 @Component({
   selector: 'app-dashboard',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
   posts!: PostDTO[];
 
-  numLikes: number = 0;
-  numDislikes: number = 0;
+  numLikes = 0;
+  numDislikes = 0;
 
   constructor(
     private postService: PostService,

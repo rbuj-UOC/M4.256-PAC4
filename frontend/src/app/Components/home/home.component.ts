@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeaderMenus } from '../../Models/header-menus.dto';
 import { PostDTO } from '../../Models/post.dto';
@@ -10,11 +10,12 @@ import { SharedService } from '../../Services/shared.service';
 
 @Component({
   selector: 'app-home',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   posts!: PostDTO[];
   showButtons: boolean;
   constructor(

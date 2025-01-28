@@ -6,13 +6,16 @@ import { UserDTO } from '../Models/user.dto';
 import { SharedService } from './shared.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class UserService {
   private urlBlogUocApi: string;
   private controller: string;
 
-  constructor(private http: HttpClient, private sharedService: SharedService) {
+  constructor(
+    private http: HttpClient,
+    private sharedService: SharedService
+  ) {
     this.controller = 'users';
     this.urlBlogUocApi = 'http://localhost:3000/' + this.controller;
   }

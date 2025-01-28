@@ -11,13 +11,16 @@ export interface AuthToken {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
   private urlBlogUocApi: string;
   private controller: string;
 
-  constructor(private http: HttpClient, private sharedService: SharedService) {
+  constructor(
+    private http: HttpClient,
+    private sharedService: SharedService
+  ) {
     this.controller = 'auth';
     this.urlBlogUocApi = 'http://localhost:3000/' + this.controller;
   }

@@ -5,7 +5,7 @@ import {
   UntypedFormBuilder,
   UntypedFormControl,
   UntypedFormGroup,
-  Validators,
+  Validators
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
@@ -18,9 +18,10 @@ import { SharedService } from '../../../Services/shared.service';
 
 @Component({
   selector: 'app-post-form',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
   templateUrl: './post-form.component.html',
-  styleUrls: ['./post-form.component.scss'],
+  styleUrls: ['./post-form.component.scss']
 })
 export class PostFormComponent implements OnInit {
   post: PostDTO;
@@ -55,12 +56,12 @@ export class PostFormComponent implements OnInit {
 
     this.title = new UntypedFormControl(this.post.title, [
       Validators.required,
-      Validators.maxLength(55),
+      Validators.maxLength(55)
     ]);
 
     this.description = new UntypedFormControl(this.post.description, [
       Validators.required,
-      Validators.maxLength(255),
+      Validators.maxLength(255)
     ]);
 
     this.publication_date = new UntypedFormControl(
@@ -82,7 +83,7 @@ export class PostFormComponent implements OnInit {
       publication_date: this.publication_date,
       categories: this.categories,
       num_likes: this.num_likes,
-      num_dislikes: this.num_dislikes,
+      num_dislikes: this.num_dislikes
     });
   }
 
@@ -120,7 +121,7 @@ export class PostFormComponent implements OnInit {
             formatDate(this.post.publication_date, 'yyyy-MM-dd', 'en')
           );
 
-          let categoriesIds: string[] = [];
+          const categoriesIds: string[] = [];
           this.post.categories.forEach((cat: CategoryDTO) => {
             categoriesIds.push(cat.categoryId);
           });
@@ -136,7 +137,7 @@ export class PostFormComponent implements OnInit {
             publication_date: this.publication_date,
             categories: this.categories,
             num_likes: this.num_likes,
-            num_dislikes: this.num_dislikes,
+            num_dislikes: this.num_dislikes
           });
         },
         (error: HttpErrorResponse) => {
@@ -149,7 +150,7 @@ export class PostFormComponent implements OnInit {
 
   private editPost(): void {
     let errorResponse: any;
-    let responseOK: boolean = false;
+    let responseOK = false;
     if (this.postId) {
       const userId = this.localStorageService.get('user_id');
       if (userId) {
@@ -185,7 +186,7 @@ export class PostFormComponent implements OnInit {
 
   private createPost(): void {
     let errorResponse: any;
-    let responseOK: boolean = false;
+    let responseOK = false;
     const userId = this.localStorageService.get('user_id');
     if (userId) {
       this.post.userId = userId;

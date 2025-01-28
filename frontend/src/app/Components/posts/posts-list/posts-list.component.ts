@@ -9,6 +9,7 @@ import { SharedService } from '../../../Services/shared.service';
 
 @Component({
   selector: 'app-posts-list',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
   templateUrl: './posts-list.component.html',
   styleUrls: ['./posts-list.component.scss']

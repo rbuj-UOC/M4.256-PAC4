@@ -4,7 +4,7 @@ import {
   UntypedFormBuilder,
   UntypedFormControl,
   UntypedFormGroup,
-  Validators,
+  Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
@@ -17,9 +17,10 @@ import { SharedService } from '../../Services/shared.service';
 
 @Component({
   selector: 'app-login',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   loginUser: AuthDTO;
@@ -39,25 +40,25 @@ export class LoginComponent implements OnInit {
 
     this.email = new UntypedFormControl('', [
       Validators.required,
-      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')
     ]);
 
     this.password = new UntypedFormControl('', [
       Validators.required,
       Validators.minLength(8),
-      Validators.maxLength(16),
+      Validators.maxLength(16)
     ]);
 
     this.loginForm = this.formBuilder.group({
       email: this.email,
-      password: this.password,
+      password: this.password
     });
   }
 
   ngOnInit(): void {}
 
   login(): void {
-    let responseOK: boolean = false;
+    let responseOK = false;
     let errorResponse: any;
 
     this.loginUser.email = this.email.value;
@@ -76,7 +77,7 @@ export class LoginComponent implements OnInit {
           if (responseOK) {
             const headerInfo: HeaderMenus = {
               showAuthSection: true,
-              showNoAuthSection: false,
+              showNoAuthSection: false
             };
             this.headerMenusService.headerManagement.next(headerInfo);
             this.router.navigateByUrl('home');
@@ -100,7 +101,7 @@ export class LoginComponent implements OnInit {
           errorResponse = error.error;
           const headerInfo: HeaderMenus = {
             showAuthSection: false,
-            showNoAuthSection: true,
+            showNoAuthSection: true
           };
           this.headerMenusService.headerManagement.next(headerInfo);
 

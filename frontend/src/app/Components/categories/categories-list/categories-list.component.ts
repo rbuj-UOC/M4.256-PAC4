@@ -2,12 +2,16 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoryDTO } from '../../../Models/category.dto';
-import { CategoryService, deleteResponse } from '../../../Services/category.service';
+import {
+  CategoryService,
+  deleteResponse
+} from '../../../Services/category.service';
 import { LocalStorageService } from '../../../Services/local-storage.service';
 import { SharedService } from '../../../Services/shared.service';
 
 @Component({
   selector: 'app-categories-list',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
   templateUrl: './categories-list.component.html',
   styleUrls: ['./categories-list.component.scss']
