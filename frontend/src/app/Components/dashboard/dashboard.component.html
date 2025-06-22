@@ -1,4 +1,6 @@
-<div *ngIf="posts">
-  <p>Num likes: {{ numLikes }}</p>
-  <p>Num dislikes: {{ numDislikes }}</p>
-</div>
+@if (posts) {
+  <div>
+    <p>Num likes: {{ numLikes }}</p>
+    <p>Num dislikes: {{ numDislikes }}</p>
+  </div>
+}

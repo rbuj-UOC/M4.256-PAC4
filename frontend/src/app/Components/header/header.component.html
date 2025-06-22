@@ -1,44 +1,48 @@
 <p>header works!</p>
 
 <!-- NO AUTH REQUIRED -->
-<div *ngIf="showNoAuthSection">
-  <button (click)="navigationTo('dashboard')">Dashboard</button>
-  <button (click)="navigationTo('home')" id="header__button-home">Home</button>
-  <button
-    (click)="navigationTo('login')"
-    [hidden]="!showAuthSection"
-    id="header__button-login">
-    Login
-  </button>
-  <button
-    (click)="navigationTo('register')"
-    [hidden]="!showAuthSection"
-    id="header__button-register">
-    Register
-  </button>
-</div>
+@if (showNoAuthSection) {
+  <div>
+    <button (click)="navigationTo('dashboard')">Dashboard</button>
+    <button (click)="navigationTo('home')" id="header__button-home">Home</button>
+    <button
+      (click)="navigationTo('login')"
+      [hidden]="!showAuthSection"
+      id="header__button-login">
+      Login
+    </button>
+    <button
+      (click)="navigationTo('register')"
+      [hidden]="!showAuthSection"
+      id="header__button-register">
+      Register
+    </button>
+  </div>
+}
 
 <!-- AUTH REQUIRED -->
-<div *ngIf="showAuthSection">
-  <button (click)="navigationTo('dashboard')">Dashboard</button>
-  <button (click)="navigationTo('home')" id="header__button-home">Home</button>
-  <button
-    (click)="navigationTo('posts')"
-    [hidden]="!showNoAuthSection"
-    id="header__button-posts">
-    Admin posts
-  </button>
-  <button
-    (click)="navigationTo('categories')"
-    [hidden]="!showNoAuthSection"
-    id="header__button-categories">
-    Admin categories
-  </button>
-  <button
-    (click)="navigationTo('profile')"
-    [hidden]="!showNoAuthSection"
-    id="header__button-profile">
-    Profile
-  </button>
-  <button (click)="logout()" id="header__button-logout">Logout</button>
-</div>
+@if (showAuthSection) {
+  <div>
+    <button (click)="navigationTo('dashboard')">Dashboard</button>
+    <button (click)="navigationTo('home')" id="header__button-home">Home</button>
+    <button
+      (click)="navigationTo('posts')"
+      [hidden]="!showNoAuthSection"
+      id="header__button-posts">
+      Admin posts
+    </button>
+    <button
+      (click)="navigationTo('categories')"
+      [hidden]="!showNoAuthSection"
+      id="header__button-categories">
+      Admin categories
+    </button>
+    <button
+      (click)="navigationTo('profile')"
+      [hidden]="!showNoAuthSection"
+      id="header__button-profile">
+      Profile
+    </button>
+    <button (click)="logout()" id="header__button-logout">Logout</button>
+  </div>
+}
