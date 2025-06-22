@@ -7,15 +7,13 @@
   <button
     (click)="navigationTo('login')"
     [hidden]="!showAuthSection"
-    id="header__button-login"
-  >
+    id="header__button-login">
     Login
   </button>
   <button
     (click)="navigationTo('register')"
     [hidden]="!showAuthSection"
-    id="header__button-register"
-  >
+    id="header__button-register">
     Register
   </button>
 </div>
@@ -27,22 +25,19 @@
   <button
     (click)="navigationTo('posts')"
     [hidden]="!showNoAuthSection"
-    id="header__button-posts"
-  >
+    id="header__button-posts">
     Admin posts
   </button>
   <button
     (click)="navigationTo('categories')"
     [hidden]="!showNoAuthSection"
-    id="header__button-categories"
-  >
+    id="header__button-categories">
     Admin categories
   </button>
   <button
     (click)="navigationTo('profile')"
     [hidden]="!showNoAuthSection"
-    id="header__button-profile"
-  >
+    id="header__button-profile">
     Profile
   </button>
   <button (click)="logout()" id="header__button-logout">Logout</button>
