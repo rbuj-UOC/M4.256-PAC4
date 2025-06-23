@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoryDTO } from '../../../Models/category.dto';
 import {
@@ -17,14 +17,14 @@ import { SharedService } from '../../../Services/shared.service';
   styleUrls: ['./categories-list.component.scss']
 })
 export class CategoriesListComponent {
+  private categoryService = inject(CategoryService);
+  private router = inject(Router);
+  private localStorageService = inject(LocalStorageService);
+  private sharedService = inject(SharedService);
+
   categories!: CategoryDTO[];
 
-  constructor(
-    private categoryService: CategoryService,
-    private router: Router,
-    private localStorageService: LocalStorageService,
-    private sharedService: SharedService
-  ) {
+  constructor() {
     this.loadCategories();
   }
 

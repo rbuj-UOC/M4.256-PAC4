@@ -1,6 +1,6 @@
 import { formatDate } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormControl,
@@ -23,6 +23,12 @@ import { UserService } from '../../Services/user.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  private formBuilder = inject(UntypedFormBuilder);
+  private userService = inject(UserService);
+  private sharedService = inject(SharedService);
+  private headerMenusService = inject(HeaderMenusService);
+  private router = inject(Router);
+
   registerUser: UserDTO;
 
   name: UntypedFormControl;
@@ -36,13 +42,7 @@ export class RegisterComponent {
   registerForm: UntypedFormGroup;
   isValidForm: boolean | null;
 
-  constructor(
-    private formBuilder: UntypedFormBuilder,
-    private userService: UserService,
-    private sharedService: SharedService,
-    private headerMenusService: HeaderMenusService,
-    private router: Router
-  ) {
+  constructor() {
     this.registerUser = new UserDTO('', '', '', '', new Date(), '', '');
 
     this.isValidForm = null;

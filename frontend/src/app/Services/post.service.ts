@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { NONE_TYPE } from '@angular/compiler';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { PostDTO } from '../Models/post.dto';
@@ -18,13 +18,13 @@ export interface deleteResponse {
   providedIn: 'root'
 })
 export class PostService {
+  private http = inject(HttpClient);
+  private sharedService = inject(SharedService);
+
   private urlBlogUocApi: string;
   private controller: string;
 
-  constructor(
-    private http: HttpClient,
-    private sharedService: SharedService
-  ) {
+  constructor() {
     this.controller = 'posts';
     this.urlBlogUocApi = 'http://localhost:3000/' + this.controller;
   }

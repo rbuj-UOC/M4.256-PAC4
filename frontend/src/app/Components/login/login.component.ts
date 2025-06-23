@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormControl,
@@ -23,19 +23,19 @@ import { SharedService } from '../../Services/shared.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  private formBuilder = inject(UntypedFormBuilder);
+  private authService = inject(AuthService);
+  private sharedService = inject(SharedService);
+  private headerMenusService = inject(HeaderMenusService);
+  private localStorageService = inject(LocalStorageService);
+  private router = inject(Router);
+
   loginUser: AuthDTO;
   email: UntypedFormControl;
   password: UntypedFormControl;
   loginForm: UntypedFormGroup;
 
-  constructor(
-    private formBuilder: UntypedFormBuilder,
-    private authService: AuthService,
-    private sharedService: SharedService,
-    private headerMenusService: HeaderMenusService,
-    private localStorageService: LocalStorageService,
-    private router: Router
-  ) {
+  constructor() {
     this.loginUser = new AuthDTO('', '', '', '');
 
     this.email = new UntypedFormControl('', [

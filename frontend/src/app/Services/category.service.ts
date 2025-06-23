@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { CategoryDTO } from '../Models/category.dto';
@@ -13,13 +13,13 @@ export interface deleteResponse {
   providedIn: 'root'
 })
 export class CategoryService {
+  private http = inject(HttpClient);
+  private sharedService = inject(SharedService);
+
   private urlBlogUocApi: string;
   private controller: string;
 
-  constructor(
-    private http: HttpClient,
-    private sharedService: SharedService
-  ) {
+  constructor() {
     this.controller = 'categories';
     this.urlBlogUocApi = 'http://localhost:3000/' + this.controller;
   }

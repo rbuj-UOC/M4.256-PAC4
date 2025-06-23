@@ -1,6 +1,6 @@
 import { formatDate } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormControl,
@@ -21,6 +21,11 @@ import { UserService } from '../../Services/user.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  private formBuilder = inject(UntypedFormBuilder);
+  private userService = inject(UserService);
+  private sharedService = inject(SharedService);
+  private localStorageService = inject(LocalStorageService);
+
   profileUser: UserDTO;
 
   name: UntypedFormControl;
@@ -34,12 +39,7 @@ export class ProfileComponent implements OnInit {
   profileForm: UntypedFormGroup;
   isValidForm: boolean | null;
 
-  constructor(
-    private formBuilder: UntypedFormBuilder,
-    private userService: UserService,
-    private sharedService: SharedService,
-    private localStorageService: LocalStorageService
-  ) {
+  constructor() {
     this.profileUser = new UserDTO('', '', '', '', new Date(), '', '');
 
     this.isValidForm = null;

@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostDTO } from '../../../Models/post.dto';
 import { deleteResponse } from '../../../Services/category.service';
@@ -15,13 +15,13 @@ import { SharedService } from '../../../Services/shared.service';
   styleUrls: ['./posts-list.component.scss']
 })
 export class PostsListComponent {
+  private postService = inject(PostService);
+  private router = inject(Router);
+  private localStorageService = inject(LocalStorageService);
+  private sharedService = inject(SharedService);
+
   posts!: PostDTO[];
-  constructor(
-    private postService: PostService,
-    private router: Router,
-    private localStorageService: LocalStorageService,
-    private sharedService: SharedService
-  ) {
+  constructor() {
     this.loadPosts();
   }
 
